@@ -6,57 +6,32 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.CitaMedicaModelo;
+import modelo.Afiliado;
 import vista.ServicioVista;
+import controlador.AfiliadoControlador;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author jsmr0
  */
 public class ServicioControlador {
-    private CitaMedicaModelo modelo;
+    private Afiliado modelo;
     private ServicioVista vista;
+    public static boolean noHuboExcepcion;
     
-    public ServicioControlador(CitaMedicaModelo modelo, ServicioVista vista){
+    public ServicioControlador(Afiliado modelo, ServicioVista vista){
         this.modelo = modelo;
         this.vista = vista;
         
         vista.setVisible(true);
-        vista.setLocationRelativeTo(null);    
-        
-        this.vista.addBotonAgregarListener(new BotonAgregarListener());
-    }
-    
-    class BotonAgregarListener implements ActionListener{
+        vista.setLocationRelativeTo(null); 
+        vista.setTitle ("Servicio de Salud Univalle");
+        vista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        vista.setVisible(true); 
+        vista.setResizable(false);
+        vista.setLayout(null);         
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String nombre;
-            String apellidos;
-            int numeroID;
-            
-            nombre = vista.getNombre();
-            apellidos = vista.getApellidos();
-            numeroID = (int) vista.getNumeroID();
-            
-            modelo.setNombre(nombre);
-            modelo.setApellidos(apellidos);
-            modelo.setNumeroID(numeroID);
-                    
-            System.out.println(nombre);
-            
-            if ("".equals(nombre)){
-                vista.displayErrorMessage("Necesitas llenar todos los campos");
-                System.out.println("error");
-            }else if ("".equals(apellidos)){
-                vista.displayErrorMessage("Necesitas llenar todos los campos");
-                System.out.println("error");
-            }else if ("".equals(apellidos)){
-                vista.displayErrorMessage("Necesitas llenar todos los campos");
-                System.out.println("error");                
-            }else{
-                vista.llenarTabla();
-            }
-        }   
     }
 }

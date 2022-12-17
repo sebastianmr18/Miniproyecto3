@@ -5,8 +5,11 @@
 
 package com.mycompany.miniproyecto3;
 
+import controlador.AfiliadoControlador;
 import controlador.ServicioControlador;
-import modelo.CitaMedicaModelo;
+import java.util.ArrayList;
+import modelo.Afiliado;
+import modelo.Conexion;
 import vista.ServicioVista;
 
 
@@ -16,9 +19,17 @@ import vista.ServicioVista;
  */
 public class Miniproyecto3 {
 
+    public static ArrayList<Afiliado> afiliados;
+    
     public static void main(String[] args) {
+        
+        afiliados = new ArrayList<>();
+
+        
         ServicioVista vista = new ServicioVista();
-        CitaMedicaModelo modelo = new CitaMedicaModelo();
-        ServicioControlador controlador = new ServicioControlador(modelo, vista);        
+        Afiliado modelo = new Afiliado();
+        Conexion conexion = new Conexion();
+        ServicioControlador controlador = new ServicioControlador(modelo, vista);
+        AfiliadoControlador oControlador = new AfiliadoControlador();
     }
 }
