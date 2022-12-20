@@ -4,20 +4,18 @@
  */
 package vista;
 
-import controlador.AfiliadoControlador;
-import java.awt.event.ActionListener;
-import java.awt.event.InputMethodEvent;
-import java.awt.event.ItemEvent;
-import java.io.IOException;
+import com.toedter.calendar.JDateChooser;
+import modelo.ListaDeAfiliados;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import modelo.Afiliado;
-import modelo.Conexion;
 
 /**
  *
@@ -25,20 +23,11 @@ import modelo.Conexion;
  */
 public class ServicioVista extends javax.swing.JFrame {
     DefaultTableModel dtm;
-    DefaultTableModel anotherDTM;
-    AfiliadoControlador afiliadoControlador;
-    Conexion conexion;
+    ListaDeAfiliados afiliadoControlador;
     
     public ServicioVista() {
         
         this.dtm = new DefaultTableModel(){
-            @Override
-            public boolean isCellEditable(int row, int column){
-                return false;
-            }
-        };
-        
-        this.anotherDTM = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int row, int column){
                 return false;
@@ -48,7 +37,7 @@ public class ServicioVista extends javax.swing.JFrame {
         initComponents();
         crearTabla();
         
-        afiliadoControlador = new AfiliadoControlador();
+        afiliadoControlador = new ListaDeAfiliados();
         afiliadoControlador.crearArrayList();
     }
         
@@ -59,14 +48,7 @@ public class ServicioVista extends javax.swing.JFrame {
         dtm.setColumnIdentifiers(titulo);
         TablaPacientes.setModel(dtm);
     }
-    
-    private void crearTablaArchivos(){
-        String[] titulo=new String[]{"Nombre", "Apellidos",  
-            "Numero de ID", "Sexo", "Dia cita", "Hora cita", "Telefono", 
-            "Medico", "Lugar", "Servicio"};
-        anotherDTM.setColumnIdentifiers(titulo);
-        TablaPacientesArchivo.setModel(anotherDTM);
-    }    
+   
     
     public String[]servicios(String servicios){
         String[]nombresDeDoctores = new String[5];       
@@ -143,14 +125,6 @@ public class ServicioVista extends javax.swing.JFrame {
         return (String) ChooserLugar.getSelectedItem();
     }     
     
-    public void displayErrorMessage(String erroMessage) {
-        JOptionPane.showMessageDialog(this, erroMessage);
-    }  
-    
-    public void addBotonNuevoListener(ActionListener listenControles){
-        BotonNuevo.addActionListener(listenControles);
-    }
-    
     public void llenarTabla(){
         dtm.addRow(new Object[]{
             CampoNombres.getText(),
@@ -166,49 +140,6 @@ public class ServicioVista extends javax.swing.JFrame {
         });
     }    
     
-    public void activar(){
-        BotonNuevo.setEnabled(false);
-        BotonAgregar.setEnabled(true);
-        BotonModificar.setEnabled(false);
-        
-        CampoNombres.setEnabled(true);
-        CampoApellidos.setEnabled(true);
-        CampoID.setEnabled(true);
-        ChooserSexo.setEnabled(true);
-        CampoCelular.setEnabled(true);
-        ChooserServicio.setEnabled(true);
-        ChooserMedico.setEnabled(true);
-        ChooserFecha.setEnabled(true);
-        ChooserHora.setEnabled(true);          
-        ChooserLugar.setEnabled(true);          
-    }    
-    
-    public void desactivar(){
-        BotonNuevo.setEnabled(true); 
-        BotonAgregar.setEnabled(false);        
-        
-        CampoNombres.setEnabled(false);
-        CampoApellidos.setEnabled(false);
-        CampoID.setEnabled(false); 
-        ChooserSexo.setEnabled(false);
-        CampoCelular.setEnabled(false);
-        ChooserServicio.setEnabled(false);
-        ChooserMedico.setEnabled(false);
-        ChooserFecha.setEnabled(false);
-        ChooserHora.setEnabled(false);          
-        ChooserLugar.setEnabled(false);
-        
-        CampoNombres.setText("");
-        CampoApellidos.setText("");
-        CampoID.setText("");
-        ChooserSexo.setSelectedItem("--");
-        CampoCelular.setText("");
-        ChooserServicio.setSelectedItem("--");
-        ChooserMedico.setSelectedItem("--");
-        ChooserHora.setSelectedItem("--");         
-        ChooserLugar.setSelectedItem("--");     
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -219,7 +150,7 @@ public class ServicioVista extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LabelTitulo = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelContenido = new javax.swing.JPanel();
         PanelCamposTexto = new javax.swing.JPanel();
         jPanelTabla = new javax.swing.JPanel();
@@ -236,7 +167,6 @@ public class ServicioVista extends javax.swing.JFrame {
         LabelCelular = new javax.swing.JLabel();
         CampoCelular = new javax.swing.JTextField();
         PanelCita = new javax.swing.JPanel();
-        LabelSubtitulo3 = new javax.swing.JLabel();
         LabelServicio = new javax.swing.JLabel();
         ChooserServicio = new javax.swing.JComboBox<>();
         LabelMedico = new javax.swing.JLabel();
@@ -252,33 +182,32 @@ public class ServicioVista extends javax.swing.JFrame {
         BotonEliminar = new javax.swing.JButton();
         BotonNuevo = new javax.swing.JButton();
         BotonRestaurar = new javax.swing.JButton();
-        BotonGenerarTablaArchivo = new javax.swing.JButton();
+        BotonExportarA = new javax.swing.JButton();
+        BotonGuardarBU = new javax.swing.JButton();
+        BotonCargarBU = new javax.swing.JButton();
         CampoFecha = new javax.swing.JLabel();
         ChooserFecha = new com.toedter.calendar.JDateChooser();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jLabelInfoTabla = new javax.swing.JLabel();
+        LabelSubtitulo3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPacientes = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TablaPacientesArchivo = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        LabelLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 204));
+        setMinimumSize(new java.awt.Dimension(975, 500));
+        setPreferredSize(new java.awt.Dimension(975, 500));
         setResizable(false);
-        setSize(new java.awt.Dimension(1000, 750));
+        setSize(new java.awt.Dimension(975, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelTitulo.setBackground(new java.awt.Color(0, 0, 0));
-        LabelTitulo.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        LabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTitulo.setText("Servicio de Salud de Univalle");
-        LabelTitulo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jTabbedPane1.setBackground(new java.awt.Color(255, 153, 153));
 
-        jPanelContenido.setBackground(new java.awt.Color(102, 255, 204));
+        jPanelContenido.setBackground(new java.awt.Color(255, 204, 204));
 
         PanelCamposTexto.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -290,7 +219,7 @@ public class ServicioVista extends javax.swing.JFrame {
         );
         PanelCamposTextoLayout.setVerticalGroup(
             PanelCamposTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 235, Short.MAX_VALUE)
         );
 
         jPanelTabla.setPreferredSize(new java.awt.Dimension(1000, 120));
@@ -306,7 +235,7 @@ public class ServicioVista extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        ContenedorDatosPersonales.setBackground(new java.awt.Color(102, 255, 204));
+        ContenedorDatosPersonales.setBackground(new java.awt.Color(255, 204, 204));
 
         LabelSubtitulo1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LabelSubtitulo1.setText("Datos Personales:");
@@ -332,72 +261,11 @@ public class ServicioVista extends javax.swing.JFrame {
 
         CampoCelular.setEnabled(false);
 
-        javax.swing.GroupLayout ContenedorDatosPersonalesLayout = new javax.swing.GroupLayout(ContenedorDatosPersonales);
-        ContenedorDatosPersonales.setLayout(ContenedorDatosPersonalesLayout);
-        ContenedorDatosPersonalesLayout.setHorizontalGroup(
-            ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
-                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelNombres)
-                            .addComponent(Label1erApellido)))
-                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(LabelSubtitulo1))
-                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LabelID)
-                        .addGap(28, 28, 28)
-                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CampoID, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(CampoApellidos)
-                            .addComponent(CampoNombres)))
-                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelSexo)
-                            .addComponent(LabelCelular))
-                        .addGap(38, 38, 38)
-                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CampoCelular)
-                            .addComponent(ChooserSexo, 0, 134, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        ContenedorDatosPersonalesLayout.setVerticalGroup(
-            ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
-                .addComponent(LabelSubtitulo1)
-                .addGap(18, 18, 18)
-                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNombres)
-                    .addComponent(CampoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label1erApellido)
-                    .addComponent(CampoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelID)
-                    .addComponent(CampoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelCelular)
-                    .addComponent(CampoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelSexo)
-                    .addComponent(ChooserSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-
-        PanelCita.setBackground(new java.awt.Color(102, 255, 204));
-
-        LabelSubtitulo3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        LabelSubtitulo3.setText("Detalles de la cita medica:");
+        PanelCita.setBackground(new java.awt.Color(255, 204, 204));
+        PanelCita.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelServicio.setText("Servicio requerido:");
+        PanelCita.add(LabelServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         ChooserServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Odontología", "Examen de Laboratorio", "Cita General", "Cita con Especialista" }));
         ChooserServicio.setEnabled(false);
@@ -411,25 +279,33 @@ public class ServicioVista extends javax.swing.JFrame {
                 ChooserServicioActionPerformed(evt);
             }
         });
+        PanelCita.add(ChooserServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 176, -1));
 
         LabelMedico.setText("Doctor encargado:");
+        PanelCita.add(LabelMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         ChooserMedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "--", "--", "--", "--" }));
         ChooserMedico.setEnabled(false);
+        PanelCita.add(ChooserMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 176, -1));
 
         LabelFecha.setText("Fecha:");
+        PanelCita.add(LabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 47, 22));
 
         LabelHora.setText("Hora:");
+        PanelCita.add(LabelHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 19));
 
         ChooserHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM" }));
         ChooserHora.setEnabled(false);
+        PanelCita.add(ChooserHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 176, -1));
 
         LabelLugar.setText("Lugar:");
+        PanelCita.add(LabelLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         ChooserLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "HUV San Fernando", "HUV Sede Norte", "Servicio Medico Melendez" }));
         ChooserLugar.setEnabled(false);
+        PanelCita.add(ChooserLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 176, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         BotonAgregar.setText("AGREGAR");
         BotonAgregar.setEnabled(false);
@@ -470,12 +346,18 @@ public class ServicioVista extends javax.swing.JFrame {
             }
         });
 
-        BotonGenerarTablaArchivo.setText("GENERAR ARCHIVO DE CITAS MEDICAS");
-        BotonGenerarTablaArchivo.addActionListener(new java.awt.event.ActionListener() {
+        BotonExportarA.setText("EXPORTAR AFILIADOS");
+        BotonExportarA.setEnabled(false);
+        BotonExportarA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonGenerarTablaArchivoActionPerformed(evt);
+                BotonExportarAActionPerformed(evt);
             }
         });
+
+        BotonGuardarBU.setText("GUARDAR BACK UP");
+        BotonGuardarBU.setEnabled(false);
+
+        BotonCargarBU.setText("CARGAR BACK UP");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -483,19 +365,20 @@ public class ServicioVista extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotonRestaurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(BotonNuevo)
-                        .addGap(26, 26, 26)
-                        .addComponent(BotonAgregar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(BotonModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonEliminar))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BotonGenerarTablaArchivo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(BotonRestaurar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(BotonGuardarBU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonExportarA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonCargarBU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,9 +394,16 @@ public class ServicioVista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BotonRestaurar)
                 .addGap(18, 18, 18)
-                .addComponent(BotonGenerarTablaArchivo)
+                .addComponent(BotonExportarA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonGuardarBU)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonCargarBU)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        PanelCita.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 0, -1, -1));
+        PanelCita.add(CampoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 151, 22));
 
         ChooserFecha.setEnabled(false);
         ChooserFecha.setMaxSelectableDate(new java.util.Date(1704002463000L));
@@ -523,76 +413,73 @@ public class ServicioVista extends javax.swing.JFrame {
                 ChooserFechaPropertyChange(evt);
             }
         });
+        PanelCita.add(ChooserFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 19, -1));
 
-        javax.swing.GroupLayout PanelCitaLayout = new javax.swing.GroupLayout(PanelCita);
-        PanelCita.setLayout(PanelCitaLayout);
-        PanelCitaLayout.setHorizontalGroup(
-            PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelCitaLayout.createSequentialGroup()
-                .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(PanelCitaLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(LabelSubtitulo3))
-                    .addGroup(PanelCitaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelServicio)
-                            .addComponent(LabelMedico)
-                            .addComponent(LabelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelHora)
-                            .addComponent(LabelLugar))
-                        .addGap(32, 32, 32)
-                        .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ChooserServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ChooserMedico, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelCitaLayout.createSequentialGroup()
-                                .addComponent(CampoFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ChooserFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ChooserHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ChooserLugar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113))
+        LabelSubtitulo3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        LabelSubtitulo3.setText("Detalles de la cita medica:");
+        PanelCita.add(LabelSubtitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
+
+        javax.swing.GroupLayout ContenedorDatosPersonalesLayout = new javax.swing.GroupLayout(ContenedorDatosPersonales);
+        ContenedorDatosPersonales.setLayout(ContenedorDatosPersonalesLayout);
+        ContenedorDatosPersonalesLayout.setHorizontalGroup(
+            ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
+                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelNombres)
+                            .addComponent(Label1erApellido)))
+                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(LabelSubtitulo1))
+                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelID)
+                        .addGap(28, 28, 28)
+                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CampoID, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(CampoApellidos)
+                            .addComponent(CampoNombres)))
+                    .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelSexo)
+                            .addComponent(LabelCelular))
+                        .addGap(38, 38, 38)
+                        .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CampoCelular)
+                            .addComponent(ChooserSexo, 0, 134, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(PanelCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        PanelCitaLayout.setVerticalGroup(
-            PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCitaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelCitaLayout.createSequentialGroup()
-                        .addComponent(LabelSubtitulo3)
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelCitaLayout.createSequentialGroup()
-                                .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(LabelServicio)
-                                    .addComponent(ChooserServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(LabelMedico)
-                                    .addComponent(ChooserMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(PanelCitaLayout.createSequentialGroup()
-                                        .addComponent(CampoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(PanelCitaLayout.createSequentialGroup()
-                                        .addComponent(ChooserFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(ChooserHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelCitaLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(LabelHora, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ChooserLugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelLugar))
-                        .addGap(219, 219, 219))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(112, 112, 112))
+        ContenedorDatosPersonalesLayout.setVerticalGroup(
+            ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContenedorDatosPersonalesLayout.createSequentialGroup()
+                .addComponent(LabelSubtitulo1)
+                .addGap(18, 18, 18)
+                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNombres)
+                    .addComponent(CampoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Label1erApellido)
+                    .addComponent(CampoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelID)
+                    .addComponent(CampoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelCelular)
+                    .addComponent(CampoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ContenedorDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelSexo)
+                    .addComponent(ChooserSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 67, Short.MAX_VALUE))
+            .addComponent(PanelCita, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
@@ -600,19 +487,15 @@ public class ServicioVista extends javax.swing.JFrame {
         jPanelContenidoLayout.setHorizontalGroup(
             jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                        .addGap(364, 364, 364)
-                        .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                        .addComponent(ContenedorDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanelCamposTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addComponent(ContenedorDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(932, 932, 932)
+                .addComponent(PanelCamposTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanelContenidoLayout.setVerticalGroup(
             jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -625,22 +508,14 @@ public class ServicioVista extends javax.swing.JFrame {
                         .addComponent(PanelCamposTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(42, 42, 42))
                     .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                                .addComponent(ContenedorDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(PanelCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addGap(18, 18, 18)
+                        .addComponent(ContenedorDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jPanel1.add(jPanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 1000, 450));
+        jTabbedPane1.addTab("Ingreso de datos", jPanelContenido);
 
-        jTabbedPane1.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabelInfoTabla.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTabbedPane1.addTab("Instrucciones", jLabelInfoTabla);
-
+        TablaPacientes.setBackground(new java.awt.Color(255, 204, 204));
         TablaPacientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         TablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -658,6 +533,7 @@ public class ServicioVista extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        TablaPacientes.setSelectionBackground(new java.awt.Color(255, 204, 204));
         TablaPacientes.getTableHeader().setReorderingAllowed(false);
         TablaPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -677,310 +553,314 @@ public class ServicioVista extends javax.swing.JFrame {
             TablaPacientes.getColumnModel().getColumn(7).setMaxWidth(60);
         }
 
-        jTabbedPane1.addTab("Tabla de citas (ultimas)", jScrollPane1);
+        jTabbedPane1.addTab("Tabla de citas programas", jScrollPane1);
 
-        TablaPacientesArchivo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        TablaPacientesArchivo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 975, 440));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
-            },
-            new String [] {
-                "", "", "", "", "", "", "", ""
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        TablaPacientesArchivo.getTableHeader().setReorderingAllowed(false);
-        TablaPacientesArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TablaPacientesArchivoMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(TablaPacientesArchivo);
-        if (TablaPacientesArchivo.getColumnModel().getColumnCount() > 0) {
-            TablaPacientesArchivo.getColumnModel().getColumn(2).setMinWidth(50);
-            TablaPacientesArchivo.getColumnModel().getColumn(2).setPreferredWidth(50);
-            TablaPacientesArchivo.getColumnModel().getColumn(2).setMaxWidth(50);
-            TablaPacientesArchivo.getColumnModel().getColumn(4).setMinWidth(100);
-            TablaPacientesArchivo.getColumnModel().getColumn(4).setPreferredWidth(100);
-            TablaPacientesArchivo.getColumnModel().getColumn(4).setMaxWidth(100);
-            TablaPacientesArchivo.getColumnModel().getColumn(7).setMinWidth(60);
-            TablaPacientesArchivo.getColumnModel().getColumn(7).setPreferredWidth(60);
-            TablaPacientesArchivo.getColumnModel().getColumn(7).setMaxWidth(60);
-        }
-
-        jTabbedPane1.addTab("Archivo de citas medicas", jScrollPane2);
-
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 975, 148));
+        LabelLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\jsmr0\\OneDrive\\Documentos\\NetBeansProjects\\Miniproyecto3\\src\\main\\archivos\\logovalle.png")); // NOI18N
+        jPanel1.add(LabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ChooserServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooserServicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChooserServicioActionPerformed
+    public DefaultTableModel getDtm() {
+        return dtm;
+    }
 
-    private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
-        try{        
-        String nombre = getNombre();
-        String apellidos = getApellidos();
-        String numeroID = getNumeroID();
-        String sexo = getSexo();
-        String fecha = (String) getFecha();
-        String celular = getCelular();
-        String servicio = getServicio();
-        String medico = getMedico();
-        String hora = getHora();
-        String lugar = getLugar();
+    public void setDtm(DefaultTableModel dtm) {
+        this.dtm = dtm;
+    }
 
-        if ("".equals(nombre)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("".equals(apellidos)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("".equals(numeroID)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("--".equals(sexo)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("".equals(celular)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("--".equals(servicio)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("--".equals(hora)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else if ("--".equals(lugar)){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }else{
-            Afiliado afiliado = new Afiliado(nombre, apellidos, numeroID, sexo, celular, servicio, medico, fecha, hora, lugar);
-            afiliadoControlador.añadirAfiliado(afiliado);
-            BotonRestaurar.setEnabled(true);
-            System.out.println("Entro hasta acá");
-            llenarTabla();
-            desactivar();
-            JOptionPane.showMessageDialog(null, "Afiliado y cita programado con exito");             
-        }
-        } catch(NullPointerException ex){
-            displayErrorMessage("Debes llenar todos los campos correctamente");
-        }
-    }//GEN-LAST:event_BotonAgregarActionPerformed
+    public ListaDeAfiliados getAfiliadoControlador() {
+        return afiliadoControlador;
+    }
 
-    private void ChooserServicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ChooserServicioItemStateChanged
-        if(evt.getStateChange()==ItemEvent.SELECTED){
-            if(this.ChooserServicio.getSelectedIndex()>0){
-                this.ChooserMedico.setModel(new DefaultComboBoxModel(this.servicios(this.ChooserServicio.getSelectedItem().toString())));
-            }
-        }
-    }//GEN-LAST:event_ChooserServicioItemStateChanged
+    public void setAfiliadoControlador(ListaDeAfiliados afiliadoControlador) {
+        this.afiliadoControlador = afiliadoControlador;
+    }
 
+    public JButton getBotonAgregar() {
+        return BotonAgregar;
+    }
+
+    public void setBotonAgregar(JButton BotonAgregar) {
+        this.BotonAgregar = BotonAgregar;
+    }
+
+    public JButton getBotonEliminar() {
+        return BotonEliminar;
+    }
+
+    public void setBotonEliminar(JButton BotonEliminar) {
+        this.BotonEliminar = BotonEliminar;
+    }
+
+    public JButton getBotonExportarA() {
+        return BotonExportarA;
+    }
+
+    public void setBotonExportarA(JButton BotonExportarA) {
+        this.BotonExportarA = BotonExportarA;
+    }
+
+    public JButton getBotonModificar() {
+        return BotonModificar;
+    }
+
+    public void setBotonModificar(JButton BotonModificar) {
+        this.BotonModificar = BotonModificar;
+    }
+
+    public JButton getBotonNuevo() {
+        return BotonNuevo;
+    }
+
+    public void setBotonNuevo(JButton BotonNuevo) {
+        this.BotonNuevo = BotonNuevo;
+    }
+
+    public JButton getBotonRestaurar() {
+        return BotonRestaurar;
+    }
+
+    public void setBotonRestaurar(JButton BotonRestaurar) {
+        this.BotonRestaurar = BotonRestaurar;
+    }
+
+    public JTextField getCampoApellidos() {
+        return CampoApellidos;
+    }
+
+    public void setCampoApellidos(JTextField CampoApellidos) {
+        this.CampoApellidos = CampoApellidos;
+    }
+
+    public JTextField getCampoCelular() {
+        return CampoCelular;
+    }
+
+    public void setCampoCelular(JTextField CampoCelular) {
+        this.CampoCelular = CampoCelular;
+    }
+
+    public JLabel getCampoFecha() {
+        return CampoFecha;
+    }
+
+    public void setCampoFecha(JLabel CampoFecha) {
+        this.CampoFecha = CampoFecha;
+    }
+
+    public JTextField getCampoID() {
+        return CampoID;
+    }
+
+    public void setCampoID(JTextField CampoID) {
+        this.CampoID = CampoID;
+    }
+
+    public JTextField getCampoNombres() {
+        return CampoNombres;
+    }
+
+    public void setCampoNombres(JTextField CampoNombres) {
+        this.CampoNombres = CampoNombres;
+    }
+
+    public JDateChooser getChooserFecha() {
+        return ChooserFecha;
+    }
+
+    public void setChooserFecha(JDateChooser ChooserFecha) {
+        this.ChooserFecha = ChooserFecha;
+    }
+
+    public JComboBox<String> getChooserHora() {
+        return ChooserHora;
+    }
+
+    public void setChooserHora(JComboBox<String> ChooserHora) {
+        this.ChooserHora = ChooserHora;
+    }
+
+    public JComboBox<String> getChooserLugar() {
+        return ChooserLugar;
+    }
+
+    public void setChooserLugar(JComboBox<String> ChooserLugar) {
+        this.ChooserLugar = ChooserLugar;
+    }
+
+    public JComboBox<String> getChooserMedico() {
+        return ChooserMedico;
+    }
+
+    public void setChooserMedico(JComboBox<String> ChooserMedico) {
+        this.ChooserMedico = ChooserMedico;
+    }
+
+    public JComboBox<String> getChooserServicio() {
+        return ChooserServicio;
+    }
+
+    public void setChooserServicio(JComboBox<String> ChooserServicio) {
+        this.ChooserServicio = ChooserServicio;
+    }
+
+    public JComboBox<String> getChooserSexo() {
+        return ChooserSexo;
+    }
+
+    public void setChooserSexo(JComboBox<String> ChooserSexo) {
+        this.ChooserSexo = ChooserSexo;
+    }
+
+    public JPanel getContenedorDatosPersonales() {
+        return ContenedorDatosPersonales;
+    }
+
+    public void setContenedorDatosPersonales(JPanel ContenedorDatosPersonales) {
+        this.ContenedorDatosPersonales = ContenedorDatosPersonales;
+    }
+
+    public JPanel getPanelCamposTexto() {
+        return PanelCamposTexto;
+    }
+
+    public void setPanelCamposTexto(JPanel PanelCamposTexto) {
+        this.PanelCamposTexto = PanelCamposTexto;
+    }
+
+    public JPanel getPanelCita() {
+        return PanelCita;
+    }
+
+    public void setPanelCita(JPanel PanelCita) {
+        this.PanelCita = PanelCita;
+    }
+
+    public JTable getTablaPacientes() {
+        return TablaPacientes;
+    }
+
+    public void setTablaPacientes(JTable TablaPacientes) {
+        this.TablaPacientes = TablaPacientes;
+    }
+
+    public JButton getBotonGuardarBU() {
+        return BotonGuardarBU;
+    }
+
+    public void setBotonGuardarBU(JButton BotonGuardarBU) {
+        this.BotonGuardarBU = BotonGuardarBU;
+    }
+
+    public JButton getBotonCargarBU() {
+        return BotonCargarBU;
+    }
+
+    public void setBotonCargarBU(JButton BotonCargarBU) {
+        this.BotonCargarBU = BotonCargarBU;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JPanel getjPanelContenido() {
+        return jPanelContenido;
+    }
+
+    public void setjPanelContenido(JPanel jPanelContenido) {
+        this.jPanelContenido = jPanelContenido;
+    }
+
+    public JPanel getjPanelTabla() {
+        return jPanelTabla;
+    }
+
+    public void setjPanelTabla(JPanel jPanelTabla) {
+        this.jPanelTabla = jPanelTabla;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTabbedPane getjTabbedPane1() {
+        return jTabbedPane1;
+    }
+
+    public void setjTabbedPane1(JTabbedPane jTabbedPane1) {
+        this.jTabbedPane1 = jTabbedPane1;
+    }
+    
+    
     private void ChooserFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_ChooserFechaPropertyChange
-        if(evt.getOldValue() != null){
-            try{
-                SimpleDateFormat anothersdf = new SimpleDateFormat("dd/MM/yyyy");
-                CampoFecha.setText(anothersdf.format(ChooserFecha.getCalendar().getTime()));
-            }catch(NullPointerException ex){
-                
-            }
 
-        }
     }//GEN-LAST:event_ChooserFechaPropertyChange
 
+    private void BotonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRestaurarActionPerformed
+
+    }//GEN-LAST:event_BotonRestaurarActionPerformed
+
     private void BotonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonNuevoActionPerformed
-        activar();
+
     }//GEN-LAST:event_BotonNuevoActionPerformed
 
     private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
-        if(TablaPacientes.getSelectedRow() == -1){
-            return;
-        }
-        
-        int numeroFila = TablaPacientes.getSelectedRow();
-        dtm.removeRow(numeroFila);
-        
-        JOptionPane.showMessageDialog(null,"Cita eliminada con exito");
 
-        desactivar();
-        BotonModificar.setEnabled(false);
-        BotonEliminar.setEnabled(false);        
-
-        
     }//GEN-LAST:event_BotonEliminarActionPerformed
 
     private void BotonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarActionPerformed
-        System.out.println(TablaPacientes.getSelectedRow());        
-        if(TablaPacientes.getSelectedRow() == -1){
-            return;
-        }     
-   
-        String nombre = getNombre();
-        String apellidos = getApellidos();
-        String numeroID = getNumeroID();
-        String sexo = getSexo();
-        String fecha = (String) getFecha();
-        String celular = getCelular();
-        String servicio = getServicio();
-        String medico = getMedico();
-        String hora = getHora();
-        String lugar = getLugar();
-        int numeroFila = TablaPacientes.getSelectedRow();
-        
-            if ("".equals(nombre)){
-                displayErrorMessage("Necesitas llenar todos los campos correctamente");
-                System.out.println("error");
-            }else if ("".equals(apellidos)){
-                displayErrorMessage("Necesitas llenar todos los campos correctamente");
-                System.out.println("error");
-            }else if ("".equals(numeroID)){
-                displayErrorMessage("Necesitas llenar todos los campos correctamente");
-                System.out.println("error");                
-            }else if ("--".equals(sexo)){
-                displayErrorMessage("Debes llenar todos los campos correctamente");
-                System.out.println("error");                
-            }else if ("".equals(celular)){
-                displayErrorMessage("Necesitas llenar todos los campos correctamente");
-                System.out.println("error");                
-            }else if ("--".equals(servicio)){
-                displayErrorMessage("Debes llenar todos los campos correctamente");
-                System.out.println("error");                
-            }else if ("--".equals(hora)){
-                displayErrorMessage("Debes llenar todos los campos correctamente");
-                System.out.println("error");                
-            }else if ("--".equals(lugar)){
-                displayErrorMessage("Debes llenar todos los campos correctamente");
-                System.out.println("error");                
-            }else{
-                Afiliado afiliado = new Afiliado(nombre, apellidos, numeroID, sexo, celular, servicio, medico, fecha, hora, lugar);
-
-                TablaPacientes.setValueAt(afiliado.getNombre(), numeroFila, 0);
-                TablaPacientes.setValueAt(afiliado.getApellidos(), numeroFila, 1);
-                TablaPacientes.setValueAt(afiliado.getNumeroID(), numeroFila, 2);
-                TablaPacientes.setValueAt(afiliado.getSexo(), numeroFila, 3);
-                TablaPacientes.setValueAt(afiliado.getFecha(), numeroFila, 4);                
-                TablaPacientes.setValueAt(afiliado.getHora(), numeroFila, 5);  
-                TablaPacientes.setValueAt(afiliado.getCelular(), numeroFila, 6);                
-                TablaPacientes.setValueAt(afiliado.getMedico(), numeroFila, 7);
-                TablaPacientes.setValueAt(afiliado.getLugar(), numeroFila, 8);       
-                TablaPacientes.setValueAt(afiliado.getServicio(), numeroFila, 9);        
-
-                JOptionPane.showMessageDialog(null,"Cita modificada con exito");
-
-                desactivar();
-                BotonModificar.setEnabled(false);
-                BotonEliminar.setEnabled(false);
-            }        
-        
 
     }//GEN-LAST:event_BotonModificarActionPerformed
 
-    private void BotonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRestaurarActionPerformed
-        int numeroFilas = TablaPacientes.getRowCount();
-        
-        for(int i = numeroFilas-1; i>=0; i--){
-            dtm.removeRow(i);
-        }
-    }//GEN-LAST:event_BotonRestaurarActionPerformed
+    private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
 
-    private void TablaPacientesArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaPacientesArchivoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TablaPacientesArchivoMouseClicked
+    }//GEN-LAST:event_BotonAgregarActionPerformed
+
+    private void ChooserServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooserServicioActionPerformed
+
+    }//GEN-LAST:event_ChooserServicioActionPerformed
+
+    private void ChooserServicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ChooserServicioItemStateChanged
+
+    }//GEN-LAST:event_ChooserServicioItemStateChanged
 
     private void TablaPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaPacientesMouseClicked
-        if(evt.getClickCount() == 2){
-            int numeroFila = TablaPacientes.getSelectedRow();
 
-            activar();
-            BotonAgregar.setEnabled(false);
-            BotonModificar.setEnabled(true);
-            BotonEliminar.setEnabled(true);
-
-            String nombre = (String) TablaPacientes.getValueAt(numeroFila, 0);
-            String apellidos = (String) TablaPacientes.getValueAt(numeroFila, 1);
-            String numeroID = (String) TablaPacientes.getValueAt(numeroFila, 2);
-            String sexo = (String) TablaPacientes.getValueAt(numeroFila, 3);
-            String fecha = (String) TablaPacientes.getValueAt(numeroFila, 4);
-            String hora = (String) TablaPacientes.getValueAt(numeroFila, 5);
-            String celular = (String) TablaPacientes.getValueAt(numeroFila, 6);
-            String medico = (String) TablaPacientes.getValueAt(numeroFila, 7);
-            String lugar = (String) TablaPacientes.getValueAt(numeroFila, 8);
-            String servicio = (String) TablaPacientes.getValueAt(numeroFila, 9);
-
-            CampoNombres.setText(nombre);
-            CampoApellidos.setText(apellidos);
-            CampoID.setText(numeroID);
-            ChooserSexo.setSelectedItem(sexo);
-            ChooserHora.setSelectedItem(hora);
-            CampoCelular.setText(celular);
-            ChooserServicio.setSelectedItem(servicio);
-            ChooserMedico.setSelectedItem(medico);
-            ChooserLugar.setSelectedItem(lugar);
-
-        }
     }//GEN-LAST:event_TablaPacientesMouseClicked
 
-    private void BotonGenerarTablaArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonGenerarTablaArchivoActionPerformed
-        try {
-            this.conexion = conexion;
-            String[] DatosCita = conexion.leerDatos().split("\n");
-            crearTablaArchivos();            
-            for (String registro : DatosCita){
-                String[] datos = registro.split("\n");
-                Afiliado afiliado = new Afiliado(datos[0],datos[1],datos[2],datos[3],datos[4],datos[5],datos[6],datos[7],datos[8],datos[9]);
-                DefaultTableModel anotherDTM = (DefaultTableModel) TablaPacientesArchivo.getModel();
-                anotherDTM.addRow(datos);
-            }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error al leer el archivo");
-        }
-    }//GEN-LAST:event_BotonGenerarTablaArchivoActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ServicioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ServicioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ServicioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ServicioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ServicioVista().setVisible(true);
-            }
-        });
-    }
+    private void BotonExportarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonExportarAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonExportarAActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregar;
+    private javax.swing.JButton BotonCargarBU;
     private javax.swing.JButton BotonEliminar;
-    private javax.swing.JButton BotonGenerarTablaArchivo;
+    private javax.swing.JButton BotonExportarA;
+    private javax.swing.JButton BotonGuardarBU;
     private javax.swing.JButton BotonModificar;
     private javax.swing.JButton BotonNuevo;
     private javax.swing.JButton BotonRestaurar;
@@ -1001,6 +881,7 @@ public class ServicioVista extends javax.swing.JFrame {
     private javax.swing.JLabel LabelFecha;
     private javax.swing.JLabel LabelHora;
     private javax.swing.JLabel LabelID;
+    private javax.swing.JLabel LabelLogo;
     private javax.swing.JLabel LabelLugar;
     private javax.swing.JLabel LabelMedico;
     private javax.swing.JLabel LabelNombres;
@@ -1008,18 +889,15 @@ public class ServicioVista extends javax.swing.JFrame {
     private javax.swing.JLabel LabelSexo;
     private javax.swing.JLabel LabelSubtitulo1;
     private javax.swing.JLabel LabelSubtitulo3;
-    private javax.swing.JLabel LabelTitulo;
     private javax.swing.JPanel PanelCamposTexto;
     private javax.swing.JPanel PanelCita;
     private javax.swing.JTable TablaPacientes;
-    private javax.swing.JTable TablaPacientesArchivo;
-    private javax.swing.JLabel jLabelInfoTabla;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelContenido;
     private javax.swing.JPanel jPanelTabla;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 

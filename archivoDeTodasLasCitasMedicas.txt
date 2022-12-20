@@ -1,0 +1,22 @@
+Cita programada en el día: 2022-12-20 a las 10:41:32.702409200
+Nombres: dsff   
+Apellidos: 4werre   
+ID: 443454   
+Sexo: Masculino   
+Celular: 3   
+Servicio: Cita General   
+Medico: Medico General 2   
+Fecha: 14-12-2022   
+Hora: 9:00 AM   
+Consultorio: Servicio Medico Melendez   
+Cita programada en el día: 2022-12-20 a las 10:42:21.512631300
+Nombres: juan   
+Apellidos: muñoz   
+ID: 123424   
+Sexo: Masculino   
+Celular: 545   
+Servicio: Examen de Laboratorio   
+Medico: Lab 3   
+Fecha: 08-12-2022   
+Hora: 8:00 AM   
+Consultorio: Servicio Medico Melendez   

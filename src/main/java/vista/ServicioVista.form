@@ -6,9 +6,15 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="cc" green="ff" red="66" type="rgb"/>
     </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[975, 500]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[975, 500]"/>
+    </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1000, 750]"/>
+      <Dimension value="[975, 500]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -25,7 +31,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,110,0,0,3,-56"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-13,0,0,3,-56"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -35,7 +41,10 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1000, 500]"/>
         </Property>
       </Properties>
       <Constraints>
@@ -48,499 +57,74 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="LabelTitulo">
+        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="48" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Servicio de Salud de Univalle"/>
-            <Property name="verticalAlignment" type="int" value="3"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="20" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Container class="javax.swing.JPanel" name="jPanelContenido">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="66" type="rgb"/>
+              <Color blue="99" green="99" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="230" width="1000" height="450"/>
+              <AbsoluteConstraints x="0" y="90" width="975" height="440"/>
             </Constraint>
           </Constraints>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="364" pref="364" max="-2" attributes="0"/>
-                              <Component id="jPanelTabla" min="-2" pref="345" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="ContenedorDatosPersonales" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="PanelCita" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="PanelCamposTexto" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanelTabla" min="-2" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                              <Component id="PanelCamposTexto" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="ContenedorDatosPersonales" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="PanelCita" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="PanelCamposTexto">
+            <Container class="javax.swing.JPanel" name="jPanelContenido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="cc" green="cc" red="ff" type="rgb"/>
                 </Property>
               </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanelTabla">
-              <Properties>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[1000, 120]"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="345" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="ContenedorDatosPersonales">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="ff" red="66" type="rgb"/>
-                </Property>
-              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Ingreso de datos">
+                    <Property name="tabTitle" type="java.lang.String" value="Ingreso de datos"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LabelNombres" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Label1erApellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                  <Component id="LabelSubtitulo1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="LabelID" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CampoID" pref="134" max="32767" attributes="0"/>
-                                      <Component id="CampoApellidos" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="CampoNombres" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LabelSexo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LabelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CampoCelular" max="32767" attributes="0"/>
-                                      <Component id="ChooserSexo" pref="134" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                          <EmptySpace min="-2" pref="370" max="-2" attributes="0"/>
+                          <Component id="jPanelTabla" min="-2" pref="345" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ContenedorDatosPersonales" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="932" max="-2" attributes="0"/>
+                          <Component id="PanelCamposTexto" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="LabelSubtitulo1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="LabelNombres" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CampoNombres" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Label1erApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CampoApellidos" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="LabelID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CampoID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="LabelCelular" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CampoCelular" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="LabelSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ChooserSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="LabelSubtitulo1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Datos Personales:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelNombres">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nombres: "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="CampoNombres">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="Label1erApellido">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Apellidos:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="CampoApellidos">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelID">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nro. de Identificaci&#xf3;n:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="CampoID">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelSexo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sexo de nacimiento:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ChooserSexo">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="--"/>
-                        <StringItem index="1" value="Masculino"/>
-                        <StringItem index="2" value="Femenino"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelCelular">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Celular:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="CampoCelular">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="PanelCita">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="ff" red="66" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Component id="LabelSubtitulo3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LabelServicio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LabelMedico" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LabelFecha" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Component id="LabelHora" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LabelLugar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="ChooserServicio" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="ChooserMedico" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="CampoFecha" max="32767" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ChooserFecha" min="-2" pref="19" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="ChooserHora" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                      <Component id="ChooserLugar" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="78" max="32767" attributes="0"/>
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanelTabla" min="-2" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="LabelSubtitulo3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="LabelServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ChooserServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="LabelMedico" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ChooserMedico" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="LabelFecha" max="32767" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="CampoFecha" min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="ChooserFecha" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="ChooserHora" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="LabelHora" min="-2" pref="19" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="ChooserLugar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LabelLugar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+                                  <Component id="PanelCamposTexto" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jPanel2" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ContenedorDatosPersonales" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="LabelSubtitulo3">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Detalles de la cita medica:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelServicio">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Servicio requerido:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ChooserServicio">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="--"/>
-                        <StringItem index="1" value="Odontolog&#xed;a"/>
-                        <StringItem index="2" value="Examen de Laboratorio"/>
-                        <StringItem index="3" value="Cita General"/>
-                        <StringItem index="4" value="Cita con Especialista"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ChooserServicioItemStateChanged"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChooserServicioActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelMedico">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Doctor encargado:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ChooserMedico">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="--"/>
-                        <StringItem index="1" value="--"/>
-                        <StringItem index="2" value="--"/>
-                        <StringItem index="3" value="--"/>
-                        <StringItem index="4" value="--"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelFecha">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Fecha:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelHora">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Hora:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ChooserHora">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="16">
-                        <StringItem index="0" value="--"/>
-                        <StringItem index="1" value="6:00 AM"/>
-                        <StringItem index="2" value="7:00 AM"/>
-                        <StringItem index="3" value="8:00 AM"/>
-                        <StringItem index="4" value="9:00 AM"/>
-                        <StringItem index="5" value="10:00 AM"/>
-                        <StringItem index="6" value="11:00 AM"/>
-                        <StringItem index="7" value="12:00 M"/>
-                        <StringItem index="8" value="1:00 PM"/>
-                        <StringItem index="9" value="2:00 PM"/>
-                        <StringItem index="10" value="3:00 PM"/>
-                        <StringItem index="11" value="4:00 PM"/>
-                        <StringItem index="12" value="5:00 PM"/>
-                        <StringItem index="13" value="6:00 PM"/>
-                        <StringItem index="14" value="7:00 PM"/>
-                        <StringItem index="15" value="8:00 PM"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="LabelLugar">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Lugar:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ChooserLugar">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="--"/>
-                        <StringItem index="1" value="HUV San Fernando"/>
-                        <StringItem index="2" value="HUV Sede Norte"/>
-                        <StringItem index="3" value="Servicio Medico Melendez"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Container class="javax.swing.JPanel" name="jPanel2">
+                <Container class="javax.swing.JPanel" name="PanelCamposTexto">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -550,161 +134,539 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="235" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
+                <Container class="javax.swing.JPanel" name="jPanelTabla">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[1000, 120]"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="345" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
+                <Container class="javax.swing.JPanel" name="ContenedorDatosPersonales">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="BotonNuevo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="BotonAgregar" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="LabelNombres" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Label1erApellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="BotonModificar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="BotonEliminar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                      <Component id="LabelSubtitulo1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="BotonGenerarTablaArchivo" alignment="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="BotonRestaurar" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="LabelID" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="CampoID" pref="134" max="32767" attributes="0"/>
+                                          <Component id="CampoApellidos" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="CampoNombres" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="LabelSexo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LabelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="CampoCelular" max="32767" attributes="0"/>
+                                          <Component id="ChooserSexo" pref="134" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="173" max="32767" attributes="0"/>
+                              <EmptySpace pref="40" max="32767" attributes="0"/>
+                              <Component id="PanelCita" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LabelSubtitulo1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="LabelNombres" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CampoNombres" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Label1erApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CampoApellidos" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="LabelID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CampoID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="LabelCelular" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CampoCelular" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="BotonNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="BotonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelSexo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ChooserSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="BotonModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="BotonEliminar" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BotonRestaurar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BotonGenerarTablaArchivo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="PanelCita" alignment="0" pref="289" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="BotonAgregar">
+                    <Component class="javax.swing.JLabel" name="LabelSubtitulo1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="AGREGAR"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="18" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Datos Personales:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelNombres">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nombres: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="CampoNombres">
+                      <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonAgregarActionPerformed"/>
-                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="BotonModificar">
+                    <Component class="javax.swing.JLabel" name="Label1erApellido">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="MODIFICAR"/>
+                        <Property name="text" type="java.lang.String" value="Apellidos:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="CampoApellidos">
+                      <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarActionPerformed"/>
-                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="BotonEliminar">
+                    <Component class="javax.swing.JLabel" name="LabelID">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+                        <Property name="text" type="java.lang.String" value="Nro. de Identificaci&#xf3;n:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="CampoID">
+                      <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarActionPerformed"/>
-                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="BotonNuevo">
+                    <Component class="javax.swing.JLabel" name="LabelSexo">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="NUEVO"/>
+                        <Property name="text" type="java.lang.String" value="Sexo de nacimiento:"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonNuevoActionPerformed"/>
-                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="BotonRestaurar">
+                    <Component class="javax.swing.JComboBox" name="ChooserSexo">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="BORRAR TODO"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="3">
+                            <StringItem index="0" value="--"/>
+                            <StringItem index="1" value="Masculino"/>
+                            <StringItem index="2" value="Femenino"/>
+                          </StringArray>
+                        </Property>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonRestaurarActionPerformed"/>
-                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="BotonGenerarTablaArchivo">
+                    <Component class="javax.swing.JLabel" name="LabelCelular">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="GENERAR ARCHIVO DE CITAS MEDICAS"/>
+                        <Property name="text" type="java.lang.String" value="Celular:"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonGenerarTablaArchivoActionPerformed"/>
-                      </Events>
                     </Component>
+                    <Component class="javax.swing.JTextField" name="CampoCelular">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="PanelCita">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                        <Property name="useNullLayout" type="boolean" value="false"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="LabelServicio">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Servicio requerido:"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="40" width="-1" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="ChooserServicio">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="5">
+                                <StringItem index="0" value="--"/>
+                                <StringItem index="1" value="Odontolog&#xed;a"/>
+                                <StringItem index="2" value="Examen de Laboratorio"/>
+                                <StringItem index="3" value="Cita General"/>
+                                <StringItem index="4" value="Cita con Especialista"/>
+                              </StringArray>
+                            </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ChooserServicioItemStateChanged"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChooserServicioActionPerformed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="160" y="40" width="176" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="LabelMedico">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Doctor encargado:"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="80" width="-1" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="ChooserMedico">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="5">
+                                <StringItem index="0" value="--"/>
+                                <StringItem index="1" value="--"/>
+                                <StringItem index="2" value="--"/>
+                                <StringItem index="3" value="--"/>
+                                <StringItem index="4" value="--"/>
+                              </StringArray>
+                            </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="160" y="80" width="176" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="LabelFecha">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Fecha:"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="120" width="47" height="22"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="LabelHora">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Hora:"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="160" width="-1" height="19"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="ChooserHora">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="16">
+                                <StringItem index="0" value="--"/>
+                                <StringItem index="1" value="6:00 AM"/>
+                                <StringItem index="2" value="7:00 AM"/>
+                                <StringItem index="3" value="8:00 AM"/>
+                                <StringItem index="4" value="9:00 AM"/>
+                                <StringItem index="5" value="10:00 AM"/>
+                                <StringItem index="6" value="11:00 AM"/>
+                                <StringItem index="7" value="12:00 M"/>
+                                <StringItem index="8" value="1:00 PM"/>
+                                <StringItem index="9" value="2:00 PM"/>
+                                <StringItem index="10" value="3:00 PM"/>
+                                <StringItem index="11" value="4:00 PM"/>
+                                <StringItem index="12" value="5:00 PM"/>
+                                <StringItem index="13" value="6:00 PM"/>
+                                <StringItem index="14" value="7:00 PM"/>
+                                <StringItem index="15" value="8:00 PM"/>
+                              </StringArray>
+                            </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="160" y="160" width="176" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="LabelLugar">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Lugar:"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="200" width="-1" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="ChooserLugar">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="4">
+                                <StringItem index="0" value="--"/>
+                                <StringItem index="1" value="HUV San Fernando"/>
+                                <StringItem index="2" value="HUV Sede Norte"/>
+                                <StringItem index="3" value="Servicio Medico Melendez"/>
+                              </StringArray>
+                            </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="160" y="200" width="176" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Container class="javax.swing.JPanel" name="jPanel2">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="373" y="0" width="-1" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="BotonRestaurar" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="BotonModificar" min="-2" pref="87" max="-2" attributes="0"/>
+                                                  <Component id="BotonNuevo" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="BotonEliminar" max="32767" attributes="0"/>
+                                                  <Component id="BotonAgregar" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="BotonGuardarBU" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="BotonExportarA" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="BotonCargarBU" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="BotonNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="BotonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="BotonModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="BotonEliminar" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="BotonRestaurar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="BotonExportarA" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="BotonGuardarBU" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="BotonCargarBU" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JButton" name="BotonAgregar">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="AGREGAR"/>
+                                <Property name="enabled" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonAgregarActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonModificar">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="MODIFICAR"/>
+                                <Property name="enabled" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonEliminar">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+                                <Property name="enabled" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonEliminarActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonNuevo">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="NUEVO"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonNuevoActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonRestaurar">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="BORRAR TODO"/>
+                                <Property name="enabled" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonRestaurarActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonExportarA">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="EXPORTAR AFILIADOS"/>
+                                <Property name="enabled" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonExportarAActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonGuardarBU">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="GUARDAR BACK UP"/>
+                                <Property name="enabled" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BotonCargarBU">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="CARGAR BACK UP"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Component class="javax.swing.JLabel" name="CampoFecha">
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="160" y="120" width="151" height="22"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="ChooserFecha">
+                          <Properties>
+                            <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
+                              <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,-116,-66,118,37,24,120"/>
+                            </Property>
+                            <Property name="minSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
+                              <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,126,20,58,41,24,120"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="ChooserFechaPropertyChange"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="310" y="120" width="19" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="LabelSubtitulo3">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="18" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Detalles de la cita medica:"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="70" y="0" width="-1" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="CampoFecha">
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="ChooserFecha">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                    <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
-                      <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,-116,-66,118,37,24,120"/>
-                    </Property>
-                    <Property name="minSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
-                      <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,126,20,58,41,24,120"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="ChooserFechaPropertyChange"/>
-                  </Events>
-                </Component>
               </SubComponents>
             </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="99" type="rgb"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="90" width="975" height="148"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelInfoTabla">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="18" style="1"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Instrucciones">
-                    <Property name="tabTitle" type="java.lang.String" value="Instrucciones"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Tabla de citas (ultimas)">
-                    <Property name="tabTitle" type="java.lang.String" value="Tabla de citas (ultimas)"/>
+                  <JTabbedPaneConstraints tabName="Tabla de citas programas">
+                    <Property name="tabTitle" type="java.lang.String" value="Tabla de citas programas"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -713,6 +675,9 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="TablaPacientes">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="0"/>
                     </Property>
@@ -771,6 +736,9 @@
                           <Renderer/>
                         </Column>
                       </TableColumnModel>
+                    </Property>
+                    <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
@@ -782,93 +750,27 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Archivo de citas medicas">
-                    <Property name="tabTitle" type="java.lang.String" value="Archivo de citas medicas"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="TablaPacientesArchivo">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="12" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="0">
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.String"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="60" minWidth="60" prefWidth="60" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TablaPacientesArchivoMouseClicked"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="40" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelLogo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\jsmr0\OneDrive\Documentos\NetBeansProjects\Miniproyecto3\src\main\archivos\logovalle.png"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="-10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

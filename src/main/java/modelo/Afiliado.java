@@ -141,7 +141,7 @@ public class Afiliado {
     
     @Override
     public String toString(){
-        return "Afiliado: " + "nombre= " + nombre + " apellido: "+ apellidos + " numero ID: " + numeroID + " celular: " + celular + " sexo: " + sexo + " servicio requerido: " + servicio + " medico asignado: " + medico + " fecha: " + fecha + " hora: " + hora + " lugar: " + lugar;
+        return "Afiliado: " + "\n" + "nombre= " + nombre +"\n"+ " apellido: "+ apellidos +"\n"+ " numero ID: " + numeroID +"\n"+ " celular: " + celular +"\n"+ " sexo: " + sexo +"\n"+ " servicio requerido: " + servicio +"\n"+ " medico asignado: " + medico +"\n"+ " fecha: " + fecha +"\n"+ " hora: " + hora +"\n"+ " lugar: " + lugar;
     }
     
     public String datos(){

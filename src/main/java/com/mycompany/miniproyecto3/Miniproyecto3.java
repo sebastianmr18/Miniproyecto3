@@ -5,11 +5,10 @@
 
 package com.mycompany.miniproyecto3;
 
-import controlador.AfiliadoControlador;
+import modelo.ListaDeAfiliados;
 import controlador.ServicioControlador;
 import java.util.ArrayList;
 import modelo.Afiliado;
-import modelo.Conexion;
 import vista.ServicioVista;
 
 
@@ -27,9 +26,7 @@ public class Miniproyecto3 {
 
         
         ServicioVista vista = new ServicioVista();
-        Afiliado modelo = new Afiliado();
-        Conexion conexion = new Conexion();
+        ListaDeAfiliados modelo = new ListaDeAfiliados();
         ServicioControlador controlador = new ServicioControlador(modelo, vista);
-        AfiliadoControlador oControlador = new AfiliadoControlador();
     }
 }
