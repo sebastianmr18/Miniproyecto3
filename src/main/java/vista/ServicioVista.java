@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -32,13 +33,13 @@ public class ServicioVista extends javax.swing.JFrame {
             public boolean isCellEditable(int row, int column){
                 return false;
             }
-        };        
-        
+        }; 
+         
         initComponents();
-        crearTabla();
+        crearTabla();         
         
         afiliadoControlador = new ListaDeAfiliados();
-        afiliadoControlador.crearArrayList();
+        afiliadoControlador.crearArrayList();         
     }
         
     private void crearTabla(){
@@ -46,42 +47,67 @@ public class ServicioVista extends javax.swing.JFrame {
             "Numero de ID", "Sexo", "Dia cita", "Hora cita", "Telefono", 
             "Medico", "Lugar", "Servicio"};
         dtm.setColumnIdentifiers(titulo);
-        TablaPacientes.setModel(dtm);
+        TablaPacientes.setModel(dtm);      
     }
    
     
     public String[]servicios(String servicios){
         String[]nombresDeDoctores = new String[5];       
         if(servicios.equalsIgnoreCase("Odontología")){
-            nombresDeDoctores[0]="Odontologo 1";
-            nombresDeDoctores[1]="Odontologo 2";
-            nombresDeDoctores[2]="Odontologo 3";
-            nombresDeDoctores[3]="Odontologo 4";
-            nombresDeDoctores[4]="Odontologo 5";            
+            nombresDeDoctores[0]="Ivan Torres";
+            nombresDeDoctores[1]="María Pilar Lopez";
+            nombresDeDoctores[2]="Inés Alvarez";  
+            nombresDeDoctores[3]="Juan Manuel Martinez";
+            nombresDeDoctores[4]="Leider Gil";              
         }
         if(servicios.equalsIgnoreCase("Examen de Laboratorio")){
-            nombresDeDoctores[0]="Lab 1";
-            nombresDeDoctores[1]="Lab 2";
-            nombresDeDoctores[2]="Lab 3";
-            nombresDeDoctores[3]="Lab 4";
-            nombresDeDoctores[4]="Lab 5";            
+            nombresDeDoctores[0]="Jesus Vazquez";
+            nombresDeDoctores[1]="Jose Antonio Jimenez";
+            nombresDeDoctores[2]="Juan Saez";  
+            nombresDeDoctores[3]="Ricardo Herrera";
+            nombresDeDoctores[4]="Julian Guzman";  
         }        
         if(servicios.equalsIgnoreCase("Cita General")){
-            nombresDeDoctores[0]="Medico General 1";
-            nombresDeDoctores[1]="Medico General 2";
-            nombresDeDoctores[2]="Medico General 3";
-            nombresDeDoctores[3]="Medico General 4";
-            nombresDeDoctores[4]="Medico General 5";            
+            nombresDeDoctores[0]="Isabel Gutierrez";
+            nombresDeDoctores[1]="Exequiel Montero";
+            nombresDeDoctores[2]="Luisa Carmona";
+            nombresDeDoctores[3]="David Mina";
+            nombresDeDoctores[4]="Ivan Reyes";            
         }  
         if(servicios.equalsIgnoreCase("Cita con Especialista")){
-            nombresDeDoctores[0]="Especialista 1";
-            nombresDeDoctores[1]="Especialista 2";
-            nombresDeDoctores[2]="Especialista 3";
-            nombresDeDoctores[3]="Especialista 4";
-            nombresDeDoctores[4]="Especialista 5";            
+            nombresDeDoctores[0]="Catalina Nuñez";
+            nombresDeDoctores[1]="Carlos Delgado";
+            nombresDeDoctores[2]="Sergio Salcedo";
+            nombresDeDoctores[3]="Celia Vidal";
+            nombresDeDoctores[4]="Sergio Duarte";            
         }         
         return nombresDeDoctores;
     }
+    
+    public String[]consultorios(String consultorios){
+        String[]nombresDeCosultorios = new String[3];       
+        if(consultorios.equalsIgnoreCase("Odontología")){
+            nombresDeCosultorios[0]="Consultorio 1";
+            nombresDeCosultorios[1]="Consultorio 2";
+            nombresDeCosultorios[2]="Consultorio 3";              
+        }
+        if(consultorios.equalsIgnoreCase("Examen de Laboratorio")){
+            nombresDeCosultorios[0]="Laboratorio 1";
+            nombresDeCosultorios[1]="Laboratorio 2";
+            nombresDeCosultorios[2]="Laboratorio 3";            
+        }        
+        if(consultorios.equalsIgnoreCase("Cita General")){
+            nombresDeCosultorios[0]="Consultorio 4";
+            nombresDeCosultorios[1]="Consultorio 5";
+            nombresDeCosultorios[2]="Consultorio 6";         
+        }  
+        if(consultorios.equalsIgnoreCase("Cita con Especialista")){
+            nombresDeCosultorios[0]="Consultorio 7";
+            nombresDeCosultorios[1]="Consultorio 8";
+            nombresDeCosultorios[2]="Consultorio 9";         
+        }         
+        return nombresDeCosultorios;
+    }    
     
     public String getNombre(){
         return CampoNombres.getText();
@@ -196,7 +222,7 @@ public class ServicioVista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 204));
         setMinimumSize(new java.awt.Dimension(975, 500));
-        setPreferredSize(new java.awt.Dimension(975, 500));
+        setPreferredSize(new java.awt.Dimension(970, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(975, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -298,10 +324,10 @@ public class ServicioVista extends javax.swing.JFrame {
         ChooserHora.setEnabled(false);
         PanelCita.add(ChooserHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 176, -1));
 
-        LabelLugar.setText("Lugar:");
+        LabelLugar.setText("Consultorio:");
         PanelCita.add(LabelLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        ChooserLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "HUV San Fernando", "HUV Sede Norte", "Servicio Medico Melendez" }));
+        ChooserLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Consultorio 1", "Consultorio 2", "Consultorio 3", "Consultorio 4", "Consultorio 5", "Consultorio 6" }));
         ChooserLugar.setEnabled(false);
         PanelCita.add(ChooserLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 176, -1));
 
@@ -315,7 +341,7 @@ public class ServicioVista extends javax.swing.JFrame {
             }
         });
 
-        BotonModificar.setText("MODIFICAR");
+        BotonModificar.setText("MODIFICA");
         BotonModificar.setEnabled(false);
         BotonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,7 +364,7 @@ public class ServicioVista extends javax.swing.JFrame {
             }
         });
 
-        BotonRestaurar.setText("BORRAR TODO");
+        BotonRestaurar.setText("LIMPIAR TABLA");
         BotonRestaurar.setEnabled(false);
         BotonRestaurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,8 +389,8 @@ public class ServicioVista extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonRestaurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -378,7 +404,7 @@ public class ServicioVista extends javax.swing.JFrame {
                     .addComponent(BotonGuardarBU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonExportarA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonCargarBU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,6 +431,7 @@ public class ServicioVista extends javax.swing.JFrame {
         PanelCita.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 0, -1, -1));
         PanelCita.add(CampoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 151, 22));
 
+        ChooserFecha.setDate(new java.util.Date(1669874463000L));
         ChooserFecha.setEnabled(false);
         ChooserFecha.setMaxSelectableDate(new java.util.Date(1704002463000L));
         ChooserFecha.setMinSelectableDate(new java.util.Date(1641016863000L));

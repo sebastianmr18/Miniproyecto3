@@ -23,9 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import static java.time.temporal.TemporalQueries.localTime;
 import java.util.Scanner;
 
 /**
@@ -153,7 +151,7 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
                         LocalTime horaActual = LocalTime.now();
                         FileWriter salvar = new FileWriter("archivoDeTodasLasCitasMedicas.txt", true);
 
-                        salvar.write("Cita programada en el día: " + fechaActual + " a las "+ horaActual+"\n");
+                        salvar.write("\nCita programada en el día: " + fechaActual + " a las "+ horaActual+"\n");
                         salvar.write("Nombres: " + nombre+"   "+"\n");
                         salvar.write("Apellidos: " + apellidos+"   "+"\n");
                         salvar.write("ID: " + numeroID+"   "+"\n");
@@ -165,13 +163,11 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
                         salvar.write("Hora: " + hora+"   "+"\n");
                         salvar.write("Consultorio: " + lugar+"   "+"\n");   
                         salvar.write("\n");
-
-                        System.out.println("ENTRO AQUI");
                         salvar.close();
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, "Error escribiendo el archivo");
                     } 
-                    JOptionPane.showMessageDialog(null, "Afiliado y cita programado con exito.");
+                    JOptionPane.showMessageDialog(null, "Afiliado y cita programado con exito.\nAsegurate de hacer el respectivo back up.");
                     System.out.println(modelo.toString());
                     vista.getBotonGuardarBU().setEnabled(true);
                     vista.getBotonExportarA().setEnabled(true);
@@ -194,11 +190,35 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
             int numeroFila = vista.getTablaPacientes().getSelectedRow();
             dtm.removeRow(numeroFila);
 
-            JOptionPane.showMessageDialog(null,"Cita eliminada con exito");
+            JOptionPane.showMessageDialog(null,"Cita eliminada con exito. \nAsegurate de hacer el respectivo back up.");
+            
+            try {
+                LocalDate fechaActual = LocalDate.now();
+                LocalTime horaActual = LocalTime.now();
+                FileWriter salvar = new FileWriter("archivoDeTodasLasCitasMedicas.txt", true);
+
+                salvar.write("\nEsta cita fue eliminada el dia: " + fechaActual + " a las "+ horaActual+"\n");
+                salvar.write("Nombres: " + vista.getNombre()+"   "+"\n");
+                salvar.write("Apellidos: " +  vista.getApellidos()+"   "+"\n");
+                salvar.write("ID: " +  vista.getNumeroID()+"   "+"\n");
+                salvar.write("Sexo: " +  vista.getSexo()+"   "+"\n");
+                salvar.write("Celular: " +  vista.getCelular()+"   "+"\n");
+                salvar.write("Servicio: " +  vista.getServicio()+"   "+"\n");
+                salvar.write("Medico: " +  vista.getMedico()+"   "+"\n");
+                salvar.write("Fecha: " +  vista.getFecha()+"   "+"\n");
+                salvar.write("Hora: " +  vista.getHora()+"   "+"\n");
+                salvar.write("Consultorio: " +  vista.getLugar()+"   "+"\n");   
+                salvar.write("\n");
+                salvar.close();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error escribiendo el archivo");
+            }              
 
             desactivar();
             vista.getBotonModificar().setEnabled(false);
             vista.getBotonEliminar().setEnabled(false);
+            
+           
         }
         if(e.getSource().equals(vista.getBotonModificar())){
             if(vista.getTablaPacientes().getSelectedRow() == -1){
@@ -255,7 +275,29 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
                 vista.getTablaPacientes().setValueAt(afiliado.getLugar(), numeroFila, 8);
                 vista.getTablaPacientes().setValueAt(afiliado.getServicio(), numeroFila, 9);
 
-                JOptionPane.showMessageDialog(null,"Cita modificada con exito");
+                JOptionPane.showMessageDialog(null,"Cita modificada con exito. \nAsegurate de hacer el respectivo back up.");
+                
+                try {
+                    LocalDate fechaActual = LocalDate.now();
+                    LocalTime horaActual = LocalTime.now();
+                    FileWriter salvar = new FileWriter("archivoDeTodasLasCitasMedicas.txt", true);
+
+                    salvar.write("\nEsta cita fue modificada el dia: " + fechaActual + " a las "+ horaActual+"\n");
+                    salvar.write("Nombres: " + vista.getNombre()+"   "+"\n");
+                    salvar.write("Apellidos: " +  vista.getApellidos()+"   "+"\n");
+                    salvar.write("ID: " +  vista.getNumeroID()+"   "+"\n");
+                    salvar.write("Sexo: " +  vista.getSexo()+"   "+"\n");
+                    salvar.write("Celular: " +  vista.getCelular()+"   "+"\n");
+                    salvar.write("Servicio: " +  vista.getServicio()+"   "+"\n");
+                    salvar.write("Medico: " +  vista.getMedico()+"   "+"\n");
+                    salvar.write("Fecha: " +  vista.getFecha()+"   "+"\n");
+                    salvar.write("Hora: " +  vista.getHora()+"   "+"\n");
+                    salvar.write("Consultorio: " +  vista.getLugar()+"   "+"\n");   
+                    salvar.write("\n");
+                    salvar.close();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Error escribiendo el archivo");
+                }   
 
                 desactivar();
                 vista.getBotonModificar().setEnabled(false);
@@ -276,6 +318,7 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
                     System.out.println("ENTRO AQUI");
                 }
                 salvar.close();
+                JOptionPane.showMessageDialog(null,"Datos de afiliados exportados correctamente");                
                     
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error escribiendo el archivo");
@@ -300,6 +343,7 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
                     System.out.println("ENTRO AQUI");
                 }
                 salvar.close();
+                JOptionPane.showMessageDialog(null,"Back up de citas guardado correctmente");
                     
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error escribiendo el archivo");
@@ -329,6 +373,11 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
                     model.addRow(new Object[]{nombre, apellidos, numeroID, sexo, 
                         celular, servicio, medico, fecha, hora, lugar});
                 }
+                vista.getBotonCargarBU().setEnabled(false);
+                vista.getBotonGuardarBU().setEnabled(true);
+                vista.getBotonExportarA().setEnabled(true); 
+                vista.getBotonRestaurar().setEnabled(true);                 
+                JOptionPane.showMessageDialog(null,"Back up de citas cargado correctmente");
             }catch(Exception x){
                 JOptionPane.showMessageDialog(null,"Error cargando el back up");
             }
@@ -339,27 +388,13 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
             for(int i = numeroFilas-1; i>=0; i--){
                 vista.getDtm().removeRow(i);
             }
-            /*            File archivoAfiliados, archivoCitas;
-            try{
-            archivoAfiliados=new File ("datosAfiliados.txt");
-            archivoCitas=new File ("BackupCitasMedicas.txt");
+            JOptionPane.showMessageDialog(null,"La tabla de citas fue restaurada. \n Ahora puedes iniciar desde cero o cargar un back up anterior");
+
+            vista.getBotonCargarBU().setEnabled(true);
+            vista.getBotonGuardarBU().setEnabled(false);
+            vista.getBotonExportarA().setEnabled(false); 
+            vista.getBotonRestaurar().setEnabled(false);  
             
-            if(!archivoAfiliados.exists()){
-            JOptionPane.showMessageDialog(null,"El archivo de afiliados no existe.");
-            } else{
-            archivoAfiliados.delete();
-            JOptionPane.showMessageDialog(null,"El archivo de afiliados fue eliminado.");
-            }
-            
-            if(!archivoCitas.exists()){
-            JOptionPane.showMessageDialog(null,"El archivo de citas medicas no existe.");
-            } else{
-            archivoCitas.delete();
-            JOptionPane.showMessageDialog(null,"El archivo de citas medicas fue eliminado.");
-            }
-            }catch(Exception ep){
-            
-            }*/
         }
     }
 
@@ -400,6 +435,7 @@ public class ServicioControlador implements ActionListener, MouseListener, ItemL
         if(e.getStateChange()==ItemEvent.SELECTED){
             if(this.vista.getChooserServicio().getSelectedIndex()>0){
                 this.vista.getChooserMedico().setModel(new DefaultComboBoxModel(this.vista.servicios(this.vista.getChooserServicio().getSelectedItem().toString())));
+                this.vista.getChooserLugar().setModel(new DefaultComboBoxModel(this.vista.consultorios(this.vista.getChooserServicio().getSelectedItem().toString())));
             }
         }
     }    

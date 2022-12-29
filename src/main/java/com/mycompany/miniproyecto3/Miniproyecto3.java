@@ -8,6 +8,7 @@ package com.mycompany.miniproyecto3;
 import modelo.ListaDeAfiliados;
 import controlador.ServicioControlador;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.Afiliado;
 import vista.ServicioVista;
 
@@ -28,5 +29,8 @@ public class Miniproyecto3 {
         ServicioVista vista = new ServicioVista();
         ListaDeAfiliados modelo = new ListaDeAfiliados();
         ServicioControlador controlador = new ServicioControlador(modelo, vista);
+        
+        JOptionPane.showMessageDialog(null,"Haz click en 'cargar backup' para cargar las citas anteriores (si las hay)"
+            + "\nSi no las vas a usar, haz click en 'nuevo' (empezaras a agendar desde cero)");           
     }
 }

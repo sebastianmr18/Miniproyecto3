@@ -1,22 +1,39 @@
-Cita programada en el día: 2022-12-20 a las 10:41:32.702409200
-Nombres: dsff   
-Apellidos: 4werre   
-ID: 443454   
+
+Cita programada en el día: 2022-12-22 a las 14:58:03.444996
+Nombres: Sergio   
+Apellidos: Galvis   
+ID: 2134324   
 Sexo: Masculino   
-Celular: 3   
-Servicio: Cita General   
-Medico: Medico General 2   
+Celular: 546546   
+Servicio: Examen de Laboratorio   
+Medico: Ricardo Herrera   
 Fecha: 14-12-2022   
 Hora: 9:00 AM   
-Consultorio: Servicio Medico Melendez   
-Cita programada en el día: 2022-12-20 a las 10:42:21.512631300
-Nombres: juan   
-Apellidos: muñoz   
-ID: 123424   
+Consultorio: Laboratorio 2   
+
+
+Esta cita fue modificada el dia: 2022-12-22 a las 14:58:19.261521900
+Nombres: Sergio   
+Apellidos: Galvis   
+ID: 2134324   
 Sexo: Masculino   
-Celular: 545   
+Celular: 546546   
 Servicio: Examen de Laboratorio   
-Medico: Lab 3   
-Fecha: 08-12-2022   
-Hora: 8:00 AM   
-Consultorio: Servicio Medico Melendez   
+Medico: Ricardo Herrera   
+Fecha: 14-12-2022   
+Hora: 12:00 M   
+Consultorio: Laboratorio 2   
+
+
+Cita programada en el día: 2022-12-28 a las 18:53:56.289432900
+Nombres: Juana   
+Apellidos: Rojas   
+ID: 3234345   
+Sexo: Femenino   
+Celular: 6577768   
+Servicio: Examen de Laboratorio   
+Medico: Julian Guzman   
+Fecha: 29-12-2022   
+Hora: 9:00 AM   
+Consultorio: Laboratorio 2   
+

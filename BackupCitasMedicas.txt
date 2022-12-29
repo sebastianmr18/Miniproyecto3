@@ -1,20 +1,10 @@
-sdffs
-dsfsf
-2344234
-Masculino
-01-12-2022
-8:00 AM
-234342
-Medico General 1
-Servicio Medico Melendez
-Cita General
-jurghgf
-ertrete
-34534
-Masculino
-12-12-2022
-12:00 M
-7879897
-Medico General 3
-HUV Sede Norte
-Cita General
+Juana
+Rojas
+3234345
+Femenino
+29-12-2022
+9:00 AM
+6577768
+Julian Guzman
+Laboratorio 2
+Examen de Laboratorio
